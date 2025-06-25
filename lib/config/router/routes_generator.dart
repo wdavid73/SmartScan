@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_starter_kit/ui/screens/screens.dart';
+import 'package:smart_scan/ui/screens/screens.dart';
 import 'routes_constants.dart';
 import 'routes_transitions.dart';
 

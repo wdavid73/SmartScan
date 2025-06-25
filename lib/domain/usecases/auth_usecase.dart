@@ -1,4 +1,4 @@
-import 'package:flutter_starter_kit/api/api.dart';
+import 'package:smart_scan/api/api.dart';
 import '../repositories/auth_repository.dart';
 
 /// A use case class for handling authentication-related operations.

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/data/data.dart';
-import 'package:flutter_starter_kit/domain/datasources/auth_datasource.dart';
+import 'package:smart_scan/api/api.dart';
+import 'package:smart_scan/data/data.dart';
+import 'package:smart_scan/domain/datasources/auth_datasource.dart';
 
 /// Example JSON response for login and checkAuthStatus:
 ///

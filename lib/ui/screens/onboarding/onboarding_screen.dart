@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter_kit/app/dependency_injection.dart';
+import 'package:smart_scan/app/dependency_injection.dart';
 import 'package:go_router/go_router.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/ui/cubits/cubits.dart';
-import 'package:flutter_starter_kit/ui/widgets/widgets.dart';
+import 'package:smart_scan/config/config.dart';
+import 'package:smart_scan/ui/cubits/cubits.dart';
+import 'package:smart_scan/ui/widgets/widgets.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});

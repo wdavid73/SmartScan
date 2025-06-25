@@ -1,7 +1,8 @@
-name: flutter_starter_kit
-description: "This is a base project in Flutter designed as a template for
-  future developments. It contains essential configurations and packages to
-  quickly start new projects."
+name: smart_scan
+description:
+  "SmartScan is a mobile application that allows you to scan physical documents
+  with professional quality from your camera. It uses automatic edge detection, image enhancement,
+  offline OCR and PDF export, all with a smooth, secure and offline-first user experience."
 publish_to: "none"
 version: 0.0.1
 
@@ -75,12 +76,12 @@ flutter:
         - asset: assets/fonts/montserrat_alternates/MontserratAlternates-Bold.ttf
 
 flutter_native_splash:
-  color: "#03A9F4"
-  color_dark: "#272727"
+  color: "#6750A4"
+  color_dark: "#2A292D"
   image: "assets/app-icon/native_splash_icon.png"
 
   android_12:
-    color: "#03A9F4"
-    color_dark: "#272727"
+    color: "#6750A4"
+    color_dark: "#2A292D"
     image: "assets/app-icon/native_splash_icon.png"
     # branding: "assets/app-icon/native_splash_icon.png"

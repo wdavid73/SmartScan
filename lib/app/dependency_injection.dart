@@ -1,10 +1,10 @@
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/data/data.dart';
-import 'package:flutter_starter_kit/domain/repositories/repositories.dart';
-import 'package:flutter_starter_kit/domain/usecases/usecases.dart';
-import 'package:flutter_starter_kit/ui/blocs/blocs.dart';
-import 'package:flutter_starter_kit/ui/cubits/cubits.dart';
-import 'package:flutter_starter_kit/ui/shared/service/service.dart';
+import 'package:smart_scan/api/api.dart';
+import 'package:smart_scan/data/data.dart';
+import 'package:smart_scan/domain/repositories/repositories.dart';
+import 'package:smart_scan/domain/usecases/usecases.dart';
+import 'package:smart_scan/ui/blocs/blocs.dart';
+import 'package:smart_scan/ui/cubits/cubits.dart';
+import 'package:smart_scan/ui/shared/service/service.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt getIt = GetIt.instance;

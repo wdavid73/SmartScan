@@ -4,20 +4,20 @@ class ColorTheme {
   // Color to text
   static Color textPrimary = HexColor.fromHex("#212121");
   static Color textSecondary = HexColor.fromHex("#757575");
-  static Color iconsColor = HexColor.fromHex("#FFFFFF");
+  static Color iconsColor = HexColor.fromHex("#CAC4D0");
 
   // Color of theme
-  static Color primaryColor = HexColor.fromHex("#3F51B5");
-  static Color lightPrimaryColor = HexColor.fromHex("#C5CAE9");
-  static Color secondaryColor = HexColor.fromHex("#303F9F");
-  static Color accentColor = HexColor.fromHex("#00BCD4");
+  static Color primaryColor = HexColor.fromHex("#6750A4");
+  static Color lightPrimaryColor = HexColor.fromHex("#D0BCFF");
+  static Color secondaryColor = HexColor.fromHex("#625B71");
+  static Color accentColor = HexColor.fromHex("#03DAC6");
 
   // Backgrounds of theme
-  static Color backgroundColor = HexColor.fromHex("#FFFFFF");
-  static Color backgroundColorDark = HexColor.fromHex("#272727");
+  static Color backgroundColor = HexColor.fromHex("#E6E1E5");
+  static Color backgroundColorDark = HexColor.fromHex("#121212");
   static Color backgroundLight = HexColor.fromHex("#f4f4f4");
-  static Color navigationBackgroundColorDark = HexColor.fromHex("#272b36");
-  static Color navigationBackgroundColorLight = HexColor.fromHex("#E8EAF6");
+  static Color navigationBackgroundColorDark = HexColor.fromHex("#2A292D");
+  static Color navigationBackgroundColorLight = HexColor.fromHex("#F7F2FA");
 
   // Utils
   static Color error = HexColor.fromHex("#EF5350");

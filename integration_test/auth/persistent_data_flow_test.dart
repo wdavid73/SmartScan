@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/data/data.dart';
-import 'package:flutter_starter_kit/ui/blocs/auth/auth_bloc.dart';
-import 'package:flutter_starter_kit/ui/cubits/cubits.dart';
-import 'package:flutter_starter_kit/ui/screens/screens.dart';
+import 'package:smart_scan/config/config.dart';
+import 'package:smart_scan/data/data.dart';
+import 'package:smart_scan/ui/blocs/auth/auth_bloc.dart';
+import 'package:smart_scan/ui/cubits/cubits.dart';
+import 'package:smart_scan/ui/screens/screens.dart';
 import 'package:go_router/go_router.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:mocktail/mocktail.dart';

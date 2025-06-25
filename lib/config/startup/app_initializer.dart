@@ -1,5 +1,5 @@
-import 'package:flutter_starter_kit/app/dependency_injection.dart';
-import 'package:flutter_starter_kit/config/config.dart';
+import 'package:smart_scan/app/dependency_injection.dart';
+import 'package:smart_scan/config/config.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 

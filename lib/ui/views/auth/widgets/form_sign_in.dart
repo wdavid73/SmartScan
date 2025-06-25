@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/ui/blocs/blocs.dart';
-import 'package:flutter_starter_kit/ui/cubits/cubits.dart';
-import 'package:flutter_starter_kit/ui/widgets/widgets.dart';
+import 'package:smart_scan/config/config.dart';
+import 'package:smart_scan/ui/blocs/blocs.dart';
+import 'package:smart_scan/ui/cubits/cubits.dart';
+import 'package:smart_scan/ui/widgets/widgets.dart';
 
 class FormSignIn extends StatelessWidget {
   const FormSignIn({super.key});

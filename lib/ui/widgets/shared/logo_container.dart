@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter_kit/config/config.dart';
+import 'package:smart_scan/config/config.dart';
 
 class LogoContainer extends StatelessWidget {
   const LogoContainer({super.key});

@@ -1,6 +1,6 @@
 # 🏗️ Flutter Base Project
 
-[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/wdavid73/flutter_starter_kit/blob/master/README.es.md)
+[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/wdavid73/smart_scan/blob/master/README.es.md)
 
 This is a base project in Flutter designed as a template for future developments. It contains essential configurations and packages to quickly start new projects.
 

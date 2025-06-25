@@ -1,6 +1,6 @@
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/domain/datasources/auth_datasource.dart';
-import 'package:flutter_starter_kit/domain/repositories/auth_repository.dart';
+import 'package:smart_scan/api/api.dart';
+import 'package:smart_scan/domain/datasources/auth_datasource.dart';
+import 'package:smart_scan/domain/repositories/auth_repository.dart';
 
 /// Implementation of [AuthRepository] that interacts with an authentication data source.
 ///

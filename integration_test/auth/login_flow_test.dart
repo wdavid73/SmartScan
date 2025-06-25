@@ -9,13 +9,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/ui/blocs/blocs.dart';
-import 'package:flutter_starter_kit/ui/cubits/cubits.dart';
-import 'package:flutter_starter_kit/ui/screens/screens.dart';
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/data/data.dart';
-import 'package:flutter_starter_kit/ui/shared/inputs/inputs.dart';
+import 'package:smart_scan/config/config.dart';
+import 'package:smart_scan/ui/blocs/blocs.dart';
+import 'package:smart_scan/ui/cubits/cubits.dart';
+import 'package:smart_scan/ui/screens/screens.dart';
+import 'package:smart_scan/api/api.dart';
+import 'package:smart_scan/data/data.dart';
+import 'package:smart_scan/ui/shared/inputs/inputs.dart';
 
 import './mocks/auth_flow_dependencies.dart';
 

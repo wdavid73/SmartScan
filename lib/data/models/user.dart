@@ -1,5 +1,5 @@
-import 'package:flutter_starter_kit/domain/entities/user.dart';
-import 'package:flutter_starter_kit/data/data.dart';
+import 'package:smart_scan/domain/entities/user.dart';
+import 'package:smart_scan/data/data.dart';
 import 'json_serializable.dart';
 
 /// A concrete implementation of the [User] entity that can be serialized to JSON.

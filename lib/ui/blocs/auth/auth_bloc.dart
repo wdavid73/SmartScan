@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/data/data.dart';
-import 'package:flutter_starter_kit/domain/usecases/auth_usecase.dart';
-import 'package:flutter_starter_kit/ui/shared/service/service.dart';
+import 'package:smart_scan/api/api.dart';
+import 'package:smart_scan/data/data.dart';
+import 'package:smart_scan/domain/usecases/auth_usecase.dart';
+import 'package:smart_scan/ui/shared/service/service.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';

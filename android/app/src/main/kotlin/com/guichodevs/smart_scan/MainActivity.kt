@@ -1,4 +1,4 @@
-package com.guichodevs.flutterstaterkit
+package com.guichodevs.smart_scan
 
 import io.flutter.embedding.android.FlutterActivity
 

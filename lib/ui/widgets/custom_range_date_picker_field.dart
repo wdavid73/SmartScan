@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter_kit/config/config.dart';
+import 'package:smart_scan/config/config.dart';
 import 'package:intl/intl.dart';
 
 /// A custom date picker field widget.
