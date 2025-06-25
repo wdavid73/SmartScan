@@ -1,4 +1,3 @@
-import 'package:smart_scan/api/api.dart';
 import '../repositories/auth_repository.dart';
 
 /// A use case class for handling authentication-related operations.
@@ -26,7 +25,7 @@ class AuthUseCase {
   ///
   /// Returns:
   ///   - A [Future] that resolves to a [ResponseState] representing the result of the login attempt.
-  Future<ResponseState> login(String email, String password) {
+  Future<dynamic> login(String email, String password) {
     return repository.login(email, password);
   }
 
@@ -39,7 +38,7 @@ class AuthUseCase {
   ///
   /// Returns:
   ///   - A [Future] that resolves to a [ResponseState] representing the result of the authentication status check.
-  Future<ResponseState> checkAuthStatus(String token) {
+  Future<dynamic> checkAuthStatus(String token) {
     return repository.checkAuthStatus(token);
   }
 
@@ -54,8 +53,7 @@ class AuthUseCase {
   ///
   /// Returns:
   ///   - A [Future] that resolves to a [ResponseState] representing the result of the registration attempt.
-  Future<ResponseState> register(
-      String email, String password, String fullName) {
+  Future<dynamic> register(String email, String password, String fullName) {
     return repository.register(email, password, fullName);
   }
 }

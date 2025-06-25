@@ -9,14 +9,14 @@ mixin AuthBlocHandler on Bloc<AuthEvent, AuthState> {
           event.password,
         );
 
-    if (response is ResponseFailed) {
+    /* if (response is ResponseFailed) {
       emit(state.copyWith(
         authStatus: AuthStatus.notAuthenticated,
         user: null,
         errorMessage: response.error!.message.toString(),
       ));
       return;
-    }
+    } */
 
     AuthResponseModel authResponse = response.data;
 
@@ -45,10 +45,10 @@ mixin AuthBlocHandler on Bloc<AuthEvent, AuthState> {
 
     try {
       final response = await (this as AuthBloc).useCase.checkAuthStatus(token);
-      if (response is ResponseFailed) {
+      /* if (response is ResponseFailed) {
         await _clearTokenAndEmitNotAuthenticated(emit);
         return;
-      }
+      } */
 
       // * this is part is particular of api service used
       final authResponse = response.data as AuthResponseModel;
@@ -85,14 +85,14 @@ mixin AuthBlocHandler on Bloc<AuthEvent, AuthState> {
         .useCase
         .register(event.email, event.password, event.fullName);
 
-    if (response is ResponseFailed) {
+    /* if (response is ResponseFailed) {
       emit(state.copyWith(
         authStatus: AuthStatus.notAuthenticated,
         user: null,
         errorMessage: response.error!.message.toString(),
       ));
       return;
-    }
+    } */
 
     AuthResponseModel authResponse = response.data;
 

@@ -1,7 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_scan/api/api.dart';
 import 'package:smart_scan/data/data.dart';
 import 'package:smart_scan/ui/blocs/auth/auth_bloc.dart';
 import 'package:mocktail/mocktail.dart';
@@ -50,7 +48,7 @@ void main() {
         );
 
         when(() => mockAuthUseCase.login(any(), any())).thenAnswer(
-          (_) async => ResponseSuccess(authResponse, 200),
+          (_) async => authResponse,
         );
 
         when(() => mockStorageService.setKeyValue<String>(any(), any()))
@@ -78,8 +76,7 @@ void main() {
       "emits [checking, notAuthenticated] when login is fails",
       build: () {
         when(() => mockAuthUseCase.login(any(), any())).thenAnswer(
-          (_) async => ResponseFailed(DioException(
-              message: "Login failed", requestOptions: RequestOptions())),
+          (_) async => {},
         );
         return authBloc;
       },
@@ -126,20 +123,17 @@ void main() {
     blocTest<AuthBloc, AuthState>(
       "emits [checking, authenticated] when token is valid and user data is loaded",
       build: () {
-        final someMockUser = UserModel(
+        /* final someMockUser = UserModel(
           id: '1',
           email: 'user@example.com',
           fullName: 'Joe Doe',
-        );
+        ); */
 
         when(() => mockStorageService.getValue<String>('token'))
             .thenAnswer((_) async => "valid_token");
 
         when(() => mockAuthUseCase.checkAuthStatus("valid_token")).thenAnswer(
-          (_) async => ResponseSuccess(
-            AuthResponseModel(token: 'valid_token', user: someMockUser),
-            200,
-          ),
+          (_) async => true,
         );
 
         when(() => mockStorageService.setKeyValue('token', 'valid_token'))
@@ -168,10 +162,7 @@ void main() {
             .thenAnswer((_) async => "mocked_token");
 
         when(() => mockAuthUseCase.checkAuthStatus("valid_token")).thenAnswer(
-          (_) async => ResponseFailed(DioException(
-            message: "checkAuthStatus failed",
-            requestOptions: RequestOptions(),
-          )),
+          (_) async => {},
         );
 
         when(() => mockStorageService.removeKey("token"))
@@ -222,7 +213,7 @@ void main() {
         );
 
         when(() => mockAuthUseCase.register(any(), any(), any())).thenAnswer(
-          (_) async => ResponseSuccess(authResponse, 201),
+          (_) async => authResponse,
         );
 
         when(() => mockStorageService.setKeyValue<String>(any(), any()))

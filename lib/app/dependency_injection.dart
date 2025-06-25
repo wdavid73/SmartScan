@@ -1,4 +1,3 @@
-import 'package:smart_scan/api/api.dart';
 import 'package:smart_scan/data/data.dart';
 import 'package:smart_scan/domain/repositories/repositories.dart';
 import 'package:smart_scan/domain/usecases/usecases.dart';
@@ -14,7 +13,7 @@ class AppDependencyInjection {
     /// Repositories
     getIt.registerLazySingleton<AuthRepository>(
       () => AuthRepositoryImpl(
-        ApiAuthDataSource(ApiClient.instance),
+        ApiAuthDataSource(),
       ),
     );
 

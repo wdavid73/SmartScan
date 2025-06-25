@@ -11,17 +11,14 @@ environment:
 
 dependencies:
   animate_do: ^4.2.0
-  dio: ^5.8.0+1
   equatable: ^2.0.7
   flutter:
     sdk: flutter
   flutter_bloc: ^9.0.0
   flutter_dotenv: ^5.2.1
   flutter_gen: ^5.10.0
-  flutter_local_notifications: ^19.2.1
   flutter_localizations:
     sdk: flutter
-  flutter_secure_storage: ^9.2.4
   flutter_svg: ^2.0.17
   formz: ^0.8.0
   get_it: ^8.0.3
@@ -30,7 +27,6 @@ dependencies:
   hydrated_bloc: ^10.0.0
   image_picker: ^1.1.2
   intl: any
-  introduction_screen: ^3.1.17
   path_provider: ^2.1.5
   shared_preferences: ^2.5.1
   shimmer: ^3.0.0
@@ -67,13 +63,13 @@ flutter:
     - assets/images/introduction/
 
   fonts:
-    - family: MontserratAlternates
+    - family: Inter
       fonts:
-        - asset: assets/fonts/montserrat_alternates/MontserratAlternates-Light.ttf
-        - asset: assets/fonts/montserrat_alternates/MontserratAlternates-Regular.ttf
-        - asset: assets/fonts/montserrat_alternates/MontserratAlternates-Medium.ttf
-        - asset: assets/fonts/montserrat_alternates/MontserratAlternates-SemiBold.ttf
-        - asset: assets/fonts/montserrat_alternates/MontserratAlternates-Bold.ttf
+        - asset: assets/fonts/inter/Inter_18pt-Light.ttf
+        - asset: assets/fonts/inter/Inter_18pt-Regular.ttf
+        - asset: assets/fonts/inter/Inter_18pt-Medium.ttf
+        - asset: assets/fonts/inter/Inter_18pt-SemiBold.ttf
+        - asset: assets/fonts/inter/Inter_18pt-Bold.ttf
 
 flutter_native_splash:
   color: "#6750A4"
