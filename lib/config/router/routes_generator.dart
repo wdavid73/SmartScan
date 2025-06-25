@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:smart_scan/features/auth/ui/ui.dart';
+import 'package:smart_scan/features/home/home_screen.dart';
+import 'package:smart_scan/features/settings/settings_screen.dart';
 import 'package:smart_scan/ui/screens/screens.dart';
 import 'routes_constants.dart';
 import 'routes_transitions.dart';

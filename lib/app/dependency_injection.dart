@@ -1,9 +1,6 @@
-import 'package:smart_scan/data/data.dart';
-import 'package:smart_scan/domain/repositories/repositories.dart';
-import 'package:smart_scan/domain/usecases/usecases.dart';
-import 'package:smart_scan/ui/blocs/blocs.dart';
+import 'package:smart_scan/features/auth/auth.dart';
 import 'package:smart_scan/ui/cubits/cubits.dart';
-import 'package:smart_scan/ui/shared/service/service.dart';
+import 'package:smart_scan/core/services/service.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt getIt = GetIt.instance;

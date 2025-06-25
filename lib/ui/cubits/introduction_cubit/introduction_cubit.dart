@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_scan/ui/shared/service/service.dart';
+import 'package:smart_scan/core/services/service.dart';
 
 part 'introduction_state.dart';
 

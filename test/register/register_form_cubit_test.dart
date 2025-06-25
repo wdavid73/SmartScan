@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_scan/ui/blocs/auth/auth_bloc.dart';
+import 'package:smart_scan/features/auth/bloc/auth_bloc.dart';
 import 'package:smart_scan/ui/cubits/cubits.dart';
 import 'package:smart_scan/ui/shared/inputs/inputs.dart';
 import 'package:mocktail/mocktail.dart';

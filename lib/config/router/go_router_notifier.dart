@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
-import 'package:smart_scan/ui/blocs/blocs.dart';
+import 'package:smart_scan/features/auth/bloc/auth_bloc.dart';
 
 /// A [ChangeNotifier] that listens to changes in the authentication state and
 /// notifies its listeners when the state changes.

@@ -1,14 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:smart_scan/app/dependency_injection.dart';
 import 'package:smart_scan/config/config.dart';
-import 'package:smart_scan/ui/cubits/introduction_cubit/introduction_cubit.dart';
 import 'package:go_router/go_router.dart';
-import 'package:smart_scan/ui/blocs/blocs.dart';
+import 'package:smart_scan/features/auth/bloc/auth_bloc.dart';
 import 'go_router_notifier.dart';
 import 'redirect_handler.dart';
 import 'routes_generator.dart';
 
-String? _handleOnboardingRedirect(BuildContext context, GoRouterState state) {
+/* String? _handleOnboardingRedirect(BuildContext context, GoRouterState state) {
   if (Environment.showOnboarding == true) {
     final introductionCubit = getIt.get<IntroductionCubit>();
 
@@ -25,7 +22,7 @@ String? _handleOnboardingRedirect(BuildContext context, GoRouterState state) {
     }
   }
   return null;
-}
+} */
 
 /// Creates and configures the application's [GoRouter] instance.
 ///
@@ -44,13 +41,11 @@ GoRouter createAppRouter(AuthBloc authBloc) {
   final goRouterNotifier = GoRouterNotifier(authBloc);
 
   return GoRouter(
-    initialLocation: Environment.showOnboarding
-        ? RouteConstants.onboardingScreen
-        : RouteConstants.splash,
+    initialLocation: RouteConstants.home,
     refreshListenable: goRouterNotifier,
     routes: AppRoutes.getAppRoutes(),
     redirect: (context, state) {
-      final onboardingRedirect = _handleOnboardingRedirect(context, state);
+      /* final onboardingRedirect = _handleOnboardingRedirect(context, state);
 
       if (onboardingRedirect != null) {
         return onboardingRedirect;
@@ -63,7 +58,8 @@ GoRouter createAppRouter(AuthBloc authBloc) {
         goRouterNotifier,
         state,
         Environment.showOnboarding == true ? isOnboardingCompleted : true,
-      );
+      ); */
+      return null;
     },
   );
 }

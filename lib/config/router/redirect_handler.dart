@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:smart_scan/ui/blocs/blocs.dart';
+import 'package:smart_scan/features/auth/bloc/auth_bloc.dart';
 import 'go_router_notifier.dart';
 import 'routes_constants.dart';
 
