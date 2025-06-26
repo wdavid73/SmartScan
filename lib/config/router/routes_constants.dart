@@ -1,7 +1,7 @@
 /// A utility class that defines the application's route paths.
 class RouteConstants {
   /// The path for the home screen.
-  static const String home = '/';
+  static const String home = '';
 
   /// The path for the splash screen.
   static const String splash = '/splash';
@@ -12,12 +12,9 @@ class RouteConstants {
   /// The path for the registration screen.
   static const String registerScreen = '/register';
 
-  /// The path for the settings screen.
-  static const String settingsScreen = '/settings';
-
   static const String scanScreen = '/scan';
 
   static const String previewScreen = '/preview';
 
-  static const String historyScreen = '/history';
+  static const String pdfViewerScreen = '/pdf_viewer';
 }

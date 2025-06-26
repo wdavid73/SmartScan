@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smart_scan/features/auth/ui/ui.dart';
-import 'package:smart_scan/features/home/home_screen.dart';
-import 'package:smart_scan/features/settings/settings_screen.dart';
+import 'package:smart_scan/features/home/ui/ui.dart';
+import 'package:smart_scan/features/preview/ui/pdf_viewer_screen.dart';
+import 'package:smart_scan/features/preview/ui/preview_screen.dart';
+import 'package:smart_scan/features/scan/ui/scan_screen.dart';
 import 'package:smart_scan/ui/screens/screens.dart';
 import 'routes_constants.dart';
 import 'routes_transitions.dart';
@@ -31,14 +33,65 @@ class AppRoutes {
       ),
 
       ///* HOME ROUTE
-      GoRoute(
-        path: RouteConstants.home,
-        name: "home",
-        builder: (context, state) => const HomeScreen(),
+      ShellRoute(
+        builder: (context, state, child) {
+          return HomeScreen(location: state.matchedLocation, child: child);
+        },
+        routes: [
+          GoRoute(
+            path: "${RouteConstants.home}/home",
+            name: "home",
+            builder: (context, state) => const HomeView(),
+          ),
+          GoRoute(
+            path: "${RouteConstants.home}/history",
+            name: "history",
+            builder: (context, state) => const HistoryView(),
+          ),
+          GoRoute(
+            path: "${RouteConstants.home}/settings",
+            name: "settings",
+            builder: (context, state) => const SettingsView(),
+          ),
+        ],
       ),
 
-      /// SETTINGS ROUTE
       GoRoute(
+        path: RouteConstants.scanScreen,
+        name: "scan_screen",
+        pageBuilder: (context, state) => _transitionPage(
+          transitionType: TransitionType.slideRight,
+          child: const ScanScreen(),
+        ),
+      ),
+
+      GoRoute(
+        path: RouteConstants.previewScreen,
+        name: "preview_screen",
+        pageBuilder: (context, state) {
+          final String imagePath = state.extra as String;
+          return _transitionPage(
+            transitionType: TransitionType.slideRight,
+            child: PreviewScreen(imagePath: imagePath),
+          );
+        },
+      ),
+
+      GoRoute(
+        path: RouteConstants.pdfViewerScreen,
+        name: "pdf_viewer_screen",
+        pageBuilder: (context, state) {
+          final String filePath = state.extra as String;
+          return _transitionPage(
+            transitionType: TransitionType.slideRight,
+            child: PdfViewerScreen(filePath: filePath),
+          );
+        },
+      ),
+      /*  */
+
+      /// SETTINGS ROUTE
+      /* GoRoute(
         path: RouteConstants.settingsScreen,
         name: "settings",
         /*builder: (context, state) => const SettingsScreen(),*/
@@ -46,7 +99,7 @@ class AppRoutes {
           child: const SettingsScreen(),
           transitionType: TransitionType.slideRight,
         ),
-      ),
+      ), */
 
       /// ONBOARDING ROUTE
       /* GoRoute(
@@ -76,8 +129,10 @@ class AppRoutes {
 CustomTransitionPage<void> _transitionPage({
   required Widget child,
   TransitionType? transitionType,
+  GoRouterState? state,
 }) =>
     TransitionManager.buildCustomTransitionPage(
-      child,
-      transitionType,
+      child: child,
+      transitionType: transitionType,
+      state: state,
     );

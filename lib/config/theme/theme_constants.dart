@@ -150,9 +150,9 @@ class ThemeConstants {
   /// light and dark themes. It sets common properties like title centering,
   /// elevation, and default icon/text styles.
   static final baseAppBarTheme = AppBarTheme(
-    centerTitle: false,
-    elevation: 0,
-    titleTextStyle: baseTextTheme.titleMedium?.copyWith(
+    centerTitle: true,
+    elevation: 5,
+    titleTextStyle: baseTextTheme.titleLarge?.copyWith(
       color: ColorTheme.textPrimary,
     ),
     shape: RoundedRectangleBorder(
