@@ -7,8 +7,11 @@ import 'package:image/image.dart' as img;
 import 'package:pdf/widgets.dart' as pw;
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:smart_scan/app/dependency_injection.dart';
+import 'package:smart_scan/features/home/cubits/cubits.dart';
 import 'package:smart_scan/ui/shared/styles/app_spacing.dart';
-import 'package:smart_scan/ui/widgets/adaptive_scaffold.dart';
+import 'package:smart_scan/ui/widgets/widgets.dart';
+import 'package:smart_scan/utils/ocr_languages.dart';
 
 class PreviewScreen extends StatefulWidget {
   final String imagePath;
@@ -26,15 +29,27 @@ class _PreviewScreenState extends State<PreviewScreen> {
   @override
   void initState() {
     super.initState();
+    final cubit = getIt.get<SettingsCubit>();
     _imageFile = File(widget.imagePath);
-    _performOCR();
+    if (cubit.state.ocrEnabled) {
+      _performOCR();
+    }
   }
 
   Future<void> _performOCR() async {
     setState(() => _processing = true);
 
     final inputImage = InputImage.fromFile(_imageFile);
-    final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
+    final script = getScriptForLanguage();
+
+    if (script == null) {
+      CustomSnackBar.showSnackBar(
+        context,
+        message: "The selected OCR language is not available in this app.",
+      );
+      return;
+    }
+    final textRecognizer = TextRecognizer(script: script);
     final recognizedText = await textRecognizer.processImage(inputImage);
     textRecognizer.close();
 
@@ -42,6 +57,17 @@ class _PreviewScreenState extends State<PreviewScreen> {
       _recognizedText = recognizedText.text;
       _processing = false;
     });
+
+    if (recognizedText.text.trim().isEmpty) {
+      if (!mounted) return;
+
+      CustomSnackBar.showSnackBar(
+        context,
+        message:
+            "No text was detected in the image with the selected language.",
+        duration: const Duration(seconds: 3),
+      );
+    }
   }
 
   Future<File> _applyGrayScaleFilter(File imageFile) async {
@@ -81,6 +107,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = getIt.get<SettingsCubit>();
     return AdaptiveScaffold(
       appBar: AppBar(
         title: Text("Preview"),
@@ -130,6 +157,14 @@ class _PreviewScreenState extends State<PreviewScreen> {
                         ? _recognizedText
                         : 'Text no detected',
                   ),
+                  if (!cubit.state.ocrEnabled && _recognizedText.isEmpty) ...[
+                    const SizedBox(height: 16),
+                    ElevatedButton.icon(
+                      icon: const Icon(Icons.text_snippet_outlined),
+                      label: const Text("Execute OCR manually"),
+                      onPressed: _performOCR,
+                    ),
+                  ]
                 ],
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:smart_scan/features/auth/auth.dart';
+import 'package:smart_scan/features/home/cubits/cubits.dart';
 import 'package:smart_scan/ui/cubits/cubits.dart';
 import 'package:smart_scan/core/services/service.dart';
 import 'package:get_it/get_it.dart';
@@ -27,6 +28,8 @@ class AppDependencyInjection {
 
     // Singleton
     getIt.registerLazySingleton<ThemeModeCubit>(() => ThemeModeCubit());
+
+    getIt.registerLazySingleton<SettingsCubit>(() => SettingsCubit());
 
     getIt.registerLazySingleton<IntroductionCubit>(
       () => IntroductionCubit(getIt.get<KeyValueStorageService>()),

@@ -4,6 +4,7 @@ import 'package:smart_scan/ui/shared/shared.dart';
 
 class CustomSwitch extends StatelessWidget {
   final String title;
+  final String? subTitle;
   final Icon? icon;
   final bool switchValue;
   final void Function(bool)? onChanged;
@@ -13,6 +14,7 @@ class CustomSwitch extends StatelessWidget {
     this.icon,
     this.switchValue = false,
     this.onChanged,
+    this.subTitle,
   });
 
   @override
@@ -25,10 +27,23 @@ class CustomSwitch extends StatelessWidget {
           children: [
             if (icon != null) icon!,
             AppSpacing.sm,
-            Text(
-              title,
-              style: context.textTheme.bodyMedium,
-            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: context.textTheme.bodyMedium,
+                ),
+                if (subTitle != null)
+                  Text(
+                    "$subTitle",
+                    style: context.textTheme.bodySmall?.copyWith(
+                      color: ColorTheme.textSecondary,
+                    ),
+                  ),
+              ],
+            )
           ],
         ),
         Transform.scale(

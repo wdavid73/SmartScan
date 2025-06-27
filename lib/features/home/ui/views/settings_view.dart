@@ -1,51 +1,82 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_scan/app/dependency_injection.dart';
 import 'package:smart_scan/config/config.dart';
+import 'package:smart_scan/features/home/cubits/settings_cubit/settings_cubit.dart';
 import 'package:smart_scan/ui/cubits/cubits.dart';
+import 'package:smart_scan/ui/shared/styles/app_spacing.dart';
 import 'package:smart_scan/ui/widgets/widgets.dart';
+import 'package:smart_scan/utils/ocr_languages.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
 
+  void _showLanguageDialog(BuildContext context, String currentLang) {
+    showDialog(
+      context: context,
+      builder: (ctx) => SimpleDialog(
+        title: const Text("Select OCR language"),
+        children: supportedOcrLanguages.entries.map((entry) {
+          return RadioListTile(
+            value: entry.key,
+            groupValue: currentLang,
+            title: Text(entry.value),
+            onChanged: (value) {
+              getIt.get<SettingsCubit>().setOcrLanguage(value!);
+              Navigator.pop(ctx);
+            },
+          );
+        }).toList(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: context.width,
-      height: context.height,
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      padding: const EdgeInsets.all(16),
       child: ListView(
         children: [
           Text(
             context.l10n.general,
-            style: context.textTheme.titleSmall,
+            style: context.textTheme.titleMedium,
           ),
-          _ItemSettings(
-            title: context.l10n.account,
-            icon: Icons.person_rounded,
+          AppSpacing.md,
+          BlocSelector<SettingsCubit, SettingsState, bool>(
+            bloc: getIt.get<SettingsCubit>(),
+            selector: (state) => state.ocrEnabled,
+            builder: (context, ocrEnabled) {
+              return CustomSwitch(
+                title: "Auto OCR",
+                subTitle: "Detect text automatically",
+                switchValue: ocrEnabled,
+                onChanged: (val) {
+                  getIt.get<SettingsCubit>().toggleOcr(val);
+                },
+              );
+            },
           ),
-          _ItemSettings(
-            title: context.l10n.deleteAccount,
-            icon: Icons.delete_forever_rounded,
+          BlocSelector<SettingsCubit, SettingsState, String>(
+            bloc: getIt.get<SettingsCubit>(),
+            selector: (state) => state.ocrLanguage,
+            builder: (context, ocrLanguage) {
+              return _ItemSettings(
+                title: "OCR Language",
+                subTitle: "Current: $ocrLanguage",
+                icon: FluentIcons.local_language_24_filled,
+                onTap: () {
+                  _showLanguageDialog(context, ocrLanguage);
+                },
+              );
+            },
           ),
-          const SizedBox(height: 20),
-          Text(
-            context.l10n.feedback,
-            style: context.textTheme.titleSmall,
-          ),
-          _ItemSettings(
-            title: context.l10n.reportBug,
-            icon: Icons.bug_report,
-          ),
-          _ItemSettings(
-            title: context.l10n.sendFeedback,
-            icon: Icons.send_rounded,
-          ),
-          const SizedBox(height: 20),
+          AppSpacing.lg,
           Text(
             context.l10n.theme,
             style: context.textTheme.titleSmall,
           ),
+          AppSpacing.sm,
           BlocSelector<ThemeModeCubit, ThemeModeState, bool>(
             bloc: getIt.get<ThemeModeCubit>(),
             selector: (state) => state.isDarkMode,
@@ -69,9 +100,13 @@ class SettingsView extends StatelessWidget {
 class _ItemSettings extends StatelessWidget {
   final IconData icon;
   final String title;
+  final String? subTitle;
+  final void Function()? onTap;
   const _ItemSettings({
     required this.icon,
     required this.title,
+    this.subTitle,
+    this.onTap,
   });
 
   @override
@@ -85,8 +120,16 @@ class _ItemSettings extends StatelessWidget {
             title,
             style: context.textTheme.bodyMedium,
           ),
-          trailing: Icon(Icons.arrow_forward_ios),
+          subtitle: subTitle != null
+              ? Text(
+                  "$subTitle",
+                  style: context.textTheme.bodySmall?.copyWith(
+                    color: ColorTheme.textSecondary,
+                  ),
+                )
+              : null,
           contentPadding: EdgeInsets.zero,
+          onTap: onTap,
         ),
         Divider(height: 0, endIndent: 0, indent: 0),
       ],
